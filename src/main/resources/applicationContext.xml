@@ -1,18 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans  xmlns="http://www.springframework.org/schema/beans"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xmlns:context="http://www.springframework.org/schema/context"
-        xsi:schemaLocation="http://www.springframework.org/schema/beans
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean id="musicBean"
-          class="org.example.RockMusic">
-    </bean>
+    <context:property-placeholder location="classpath:MusicPlayer.properties"/>
+
     <bean id="musicPlayer"
           class="org.example.MusicPlayer">
-        <constructor-arg ref="musicBean"/>
+        <property name="music">
+            <list>
+                <bean id="musicBeanRockMusic"
+                      class="org.example.RockMusic">
+                    <property name="actor" value="${musicPlayer.actorRock}"/>
+                </bean>
+                <bean id="musicBeanClassicalMusic"
+                      class="org.example.ClassicalMusic">
+                    <property name="actor" value="${musicPlayer.actorClassical}"/>
+                </bean>
+                <bean id="musicBeanPopMusic"
+                      class="org.example.PopMusic">
+                    <property name="actor" value="${musicPlayer.actorPop}"/>
+                </bean>
+            </list>
+        </property>
+        <property name="volume" value="${musicPlayer.volume}"/>
     </bean>
 
 </beans>

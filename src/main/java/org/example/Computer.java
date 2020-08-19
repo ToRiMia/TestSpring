@@ -3,6 +3,8 @@ package org.example;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import static org.example.Ganre.*;
+
 @Component
 public class Computer {
 
@@ -17,6 +19,6 @@ public class Computer {
 
     @Override
     public String toString() {
-        return "Computer " + id + " " + musicPlayer.playMusic();
+        return "Computer " + id + " " + musicPlayer.playMusic(ROCK);
     }
 }

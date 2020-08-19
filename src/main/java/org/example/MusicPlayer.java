@@ -5,13 +5,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
+import static org.example.Ganre.CLASSICAL;
+
 @Component
 public class MusicPlayer {
 
     private Music music1;
     private Music music2;
 
-    public MusicPlayer(@Qualifier("rockMusic") Music music1,@Qualifier("classicalMusic") Music music2) {
+    public MusicPlayer(@Qualifier("rockMusic") Music music1, @Qualifier("classicalMusic") Music music2) {
         this.music1 = music1;
         this.music2 = music2;
     }
@@ -27,8 +29,10 @@ public class MusicPlayer {
     public MusicPlayer() {
     }*/
 
-    public String playMusic() {
-        return "Playning: " + music1.getSong() + "\nPlayning: " + music2.getSong();
+    public String playMusic(Ganre ganre) {
+        if (ganre == CLASSICAL)
+            return music2.getSong();
+        else return music1.getSong();
     }
     /*public void setMusic(Music music) {
         this.music = music;

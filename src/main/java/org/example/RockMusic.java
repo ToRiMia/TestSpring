@@ -2,9 +2,21 @@ package org.example;
 
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+
 @Component
 public class RockMusic implements Music{
+
+    ArrayList<String> songs = new ArrayList<>();
+
+    public void setSongs(){
+        songs.add("Nirvana - Smells Like Teen Spirit");
+        songs.add("Linkin Park - In The End");
+        songs.add("Король и Шут - Мёртвый анархист");
+    }
+
     private RockMusic() {
+        setSongs();
     }
 
     public static RockMusic getRockMusic(){
@@ -21,6 +33,6 @@ public class RockMusic implements Music{
 
     @Override
     public String getSong() {
-        return "Demons";
+        return songs.get((int)(Math.random() * 3));
     }
 }

@@ -23,11 +23,13 @@ public class TestSpring {
 //        System.out.println("Volume 1: " + musicPlayer1.getVolume());
 //        System.out.println("Volume 2: " + musicPlayer2.getVolume());
 
-//        MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
-//        musicPlayer.playMusic();
+        MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
+        System.out.println(musicPlayer.playMusic());
+        System.out.println(musicPlayer.getName());
+        System.out.println(musicPlayer.getVolume());
 
-        Computer computer = context.getBean("computer", Computer.class);
-        System.out.println(computer);
+        //Computer computer = context.getBean("computer", Computer.class);
+        //System.out.println(computer);
 
         context.close();
 

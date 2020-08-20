@@ -16,7 +16,6 @@ public class RockMusic implements Music{
         return new RockMusic();
     }
 
-    @PostConstruct
     public void doMyInit(){
         System.out.println("Doing my initialisation");
     }

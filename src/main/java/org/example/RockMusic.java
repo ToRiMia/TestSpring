@@ -6,10 +6,8 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
-@Component
-@Scope("prototype")
 public class RockMusic implements Music{
-    private RockMusic() {
+    public RockMusic() {
     }
 
     public static RockMusic getRockMusic(){
